@@ -18,18 +18,21 @@ init = () => {
 	function displayDogs(dogs, filter = false) {
 		const dogBar = document.getElementById('dog-bar');
 		dogBar.innerHTML = '';
-		for (dog in allDogs) {
+		for (const dog in allDogs) {
 			if (filter && !allDogs[dog].isGoodDog) continue;
 			// alert(allDogs[dog].name);
 			const span = document.createElement('span');
 			span.innerText = allDogs[dog].name;
 			span.id = allDogs[dog].id;
+			console.log(allDogs[dog]);
 			span.addEventListener('click', () => displayDogInfo(allDogs[dog]));
 			dogBar.appendChild(span);
 		}
 	}
 
 	function displayDogInfo(dog) {
+		// console.log(dog);
+		// alert(dog.name);
 		const dogInfo = document.getElementById('dog-info');
 		dogInfo.innerHTML = '';
 		const img = document.createElement('img');
